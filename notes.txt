@@ -1,0 +1,93 @@
+POST /vehicles/car/123/_update
+  {
+    "doc":{
+    
+    "color":"black"
+      
+    }
+  }
+
+GET /vehicles
+
+POST /vehicles/car/123/_update
+  {
+    "doc":{
+    
+    "color":"black"
+      
+    }
+  }
+
+---
+
+PUT /business/building/110
+{
+  "address":"57 New Dover Ln",
+  "floors":10,
+  "offices":21,
+  "loc":{
+    "lat":40.707519,
+    "lan":-74.008560
+  }
+}
+
+GET /business
+
+PUT /employees/_doc/330
+{
+ "name":"Ricahrd bill",
+ "title":"Senior Accountant",
+ "salary_used":115000.00,
+ "hireddate":"jan 19,2013"
+}
+
+
+PUT /employees/_doc/331
+{
+ "name":"Steve Honor",
+ "title":"Attorney",
+ "salary_used":140000.00,
+ "hireddate":"Oct 19,2013"
+}
+
+PUT /contracts/_doc/9987
+{
+ "name":"property renovation",
+ "date_signed":"July 26,2010",
+ "employees_involved":[331,330,398]
+}
+
+--for searching
+
+GET business/building/_search
+
+--query for term
+
+GET business/_search
+{
+  "query":{
+    "term":{
+      "address":"pen"
+    }
+  }
+}
+
+it searched address with pen
+
+GET business/_search
+{
+  "query":{
+    "match_all":{}
+    
+  }
+} 
+  
+GET business/_search?pretty
+{
+  "query":{
+    "match_all":{}
+    
+  }
+} 
+
+     
